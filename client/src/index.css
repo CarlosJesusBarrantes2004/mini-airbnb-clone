@@ -2,50 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type='text'],
-input[type='password'],
-input[type='email'],
-input[type='number'],
-input[type='tel'],
-textarea {
-  @apply w-full border my-2 py-2 px-3 rounded-lg outline-none focus:border-2 focus:border-primary;
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
 }
 
-textarea {
-  height: 140px;
-  min-height: 100px;
-  max-height: 250px;
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
 }
 
-button {
-  @apply bg-gray-300;
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
 }
 
-button.primary {
-  background-color: #f5385d;
-  @apply bg-primary p-2 w-full text-white rounded-2xl;
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
 }
 
-button.primary:hover {
-  background-color: #e5375a;
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
 }
 
-.alert {
-  @apply border rounded-md p-2 my-4 text-sm font-normal flex gap-2 justify-between shadow-md;
+body {
+  font-family: "Poppins";
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-.alert-any {
-  @apply border-gray-500 bg-gray-200;
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
 }
 
-.alert-success {
-  @apply border-green-500 bg-green-200;
+p {
+  text-wrap: pretty;
 }
 
-.alert-error {
-  @apply border-red-500 bg-red-200;
+.link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
 }
-
-.alert-warning {
-  @apply border-yellow-500 bg-yellow-200;
+.link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  border-radius: 5px;
+  height: 0.05em;
+  bottom: 0;
+  left: 0;
+  background: currentcolor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

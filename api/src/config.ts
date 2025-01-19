@@ -1,0 +1,11 @@
+export const {
+  PORT = 3000,
+  SALT_ROUNDS = 10,
+  MONGO_URL,
+  JWT_SECRET,
+  FRONTEND_URL,
+  NODE_ENV = "production",
+  CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+} = process.env;

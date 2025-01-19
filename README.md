@@ -1,6 +1,6 @@
 # Airbnb Clone
 
-Este proyecto es un clon de Airbnb desarrollado con el stack MERN (MongoDB, Express, React, Node.js). El proyecto consta de un backend robusto con autenticación JWT y un frontend responsive diseñado con Tailwind CSS.
+Este proyecto es un clon de Airbnb desarrollado con el stack MERN (MongoDB, Express, React, Node.js). El proyecto consta de un backend implementando autenticación JWT y typescript y un frontend responsive diseñado con Tailwind CSS.
 
 ## Tecnologías Utilizadas
 
@@ -11,6 +11,7 @@ Este proyecto es un clon de Airbnb desarrollado con el stack MERN (MongoDB, Expr
 - JWT para autenticación
 - Cookie-parser para manejo de cookies
 - Multer para upload de archivos
+- Zod para validación de datos
 - Estructura modular (controllers, routes, middleware)
 
 ### Frontend
@@ -19,7 +20,6 @@ Este proyecto es un clon de Airbnb desarrollado con el stack MERN (MongoDB, Expr
 - Tailwind CSS para estilos
 - Context API para estado global
 - React Router DOM para navegación
-- Axios para peticiones HTTP
 
 ## Características Principales
 
@@ -33,7 +33,6 @@ Este proyecto es un clon de Airbnb desarrollado con el stack MERN (MongoDB, Expr
 ### Funcionalidades
 
 - Listado de propiedades
-- Búsqueda y filtrado
 - Sistema de reservas
 - Panel de usuario
 - Gestión de propiedades
@@ -65,12 +64,16 @@ npm run dev
 PORT=3000
 MONGO_URL=tu_uri_de_mongodb
 JWT_SECRET=tu_jwt_secret
+FRONTEND_URL=http://localhost:5173
+CLOUDINARY_CLOUD_NAME=dewfdefewrew
+CLOUDINARY_API_KEY=2h143jrb32244r
+CLOUDINARY_API_SECRET=i32jrih3rhweje23
 ```
 
 ### Frontend (.env)
 
 ```env
-VITE_API_URL=http://localhost:3000
+VITE_BACKEND_URL=http://localhost:3000
 ```
 
 ## Estructura del Proyecto
@@ -80,26 +83,28 @@ VITE_API_URL=http://localhost:3000
 ```
 api/
 ├── controllers/
-│   ├── auth.controller.js
-│   ├── booking.controller.js
-│   ├── place.Controller.js
-|   └── user.controller.js
+│   ├── auth.controller.ts
+│   ├── booking.controller.ts
+│   ├── property.Controller.ts
+|   └── user.controller.ts
 ├── routes/
-│   ├── auth.routes.js
-│   ├── place.routes.js
-|   ├── upload.routes.js
-│   └── booking.routes.js
+│   ├── auth.route.ts
+│   ├── property.route.ts
+│   ├── index.ts
+|   ├── upload.route.ts
+│   └── booking.route.ts
 ├── middlewares/
-│   ├── errorhanlder.js
-│   └── validateToken.js
+│   ├── auth.middleware.ts
+│   ├── error.middleware.ts
+│   └── validate.ts
 ├── models/
-│   ├── User.js
-│   ├── Place.js
-│   └── Booking.js
+│   ├── User.ts
+│   ├── Booking.ts
+│   └── Property.ts
 |   .
 |   .
 |   .
-└── server.js
+└── index.ts
 ```
 
 ### Frontend
@@ -111,21 +116,5 @@ client/
 │   ├── context/
 │   ├── pages/
 │   ├── hooks/
-│   └── App.jsx
+│   └── App.tsx
 ```
-
-## Mejoras Realizadas sobre el Tutorial Original
-
-- Implementación de middleware personalizado
-- Mejoras en la autenticación y manejo de sesiones
-- Optimización del manejo de imágenes
-- Sistema de reservas mejorado
-- Implementación de filtros avanzados
-
-## Contribución
-
-Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir qué te gustaría cambiar.
-
-## Basado en
-
-Este proyecto está inspirado en el tutorial de [https://youtu.be/MpQbwtSiZ7E?si=DZxpzKArO2e9eQg_], con modificaciones y mejoras significativas en el backend y funcionalidades adicionales.
